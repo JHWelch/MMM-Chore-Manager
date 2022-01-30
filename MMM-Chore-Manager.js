@@ -101,19 +101,6 @@ Module.register('MMM-Chore-Manager', {
     };
   },
 
-  processData(data) {
-    const self = this;
-    this.dataRequest = data;
-    if (this.loaded === false) {
-      self.updateDom(self.config.animationSpeed);
-    }
-    this.loaded = true;
-
-    // the data if load
-    // send notification to helper
-    this.sendSocketNotification('MMM-Chore-Manager-NOTIFICATION_TEST', data);
-  },
-
   socketNotificationReceived(notification, payload) {
     if (notification === 'CM_DATA') {
       // Set local variables from payload
