@@ -132,4 +132,24 @@ describe('MMM-Chore-Manager', () => {
       'MMM-Chore-Manager.css'
     ]);
   });
+
+  describe('getTemplate', () => {
+    const { generateResponse } = require('../__mocks__/mockResponse');
+
+    beforeEach(() => {
+      MMMChoreManager.chores = generateResponse().data;
+    });
+
+    test('chore list is combined', () => {
+      expect(MMMChoreManager.getTemplateData().chores.length).toBe(5);
+    });
+
+    test('chores have past due flag if past due', () => {
+      expect(MMMChoreManager.getTemplateData().chores[0].isPastDue).toBe(true);
+    });
+
+    test('chores do not have past due flag if due today', () => {
+      expect(MMMChoreManager.getTemplateData().chores[4].isPastDue).toBeFalsy();
+    });
+  });
 });
