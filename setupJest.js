@@ -1,3 +1,4 @@
+require('setimmediate');
 require('jest-fetch-mock').enableMocks();
 
 global.waitForAsync = () => new Promise((resolve) => setImmediate(resolve));
