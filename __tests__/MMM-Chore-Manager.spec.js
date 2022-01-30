@@ -24,9 +24,6 @@ describe('MMM-Chore-Manager', () => {
     test('updateInterval', () => {
       expect(MMMChoreManager.defaults.updateInterval).toBe(60000);
     });
-    test('retryDelay', () => {
-      expect(MMMChoreManager.defaults.retryDelay).toBe(5000);
-    });
   });
 
   test('inits module with state loading === true', () => {
