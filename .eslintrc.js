@@ -9,6 +9,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }]
+    'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
+    'jsdoc/require-jsdoc': false
   }
 };
