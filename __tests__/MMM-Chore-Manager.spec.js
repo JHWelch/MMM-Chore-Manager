@@ -17,7 +17,7 @@ describe('MMM-Chore-Manager', () => {
   });
 
   test('requires version 2.1', () => {
-    expect(MMMChoreManager.requiresVersion).toBe('2.1.0');
+    expect(MMMChoreManager.requiresVersion).toBe('2.2.0');
   });
 
   describe('defaults', () => {
@@ -128,5 +128,11 @@ describe('MMM-Chore-Manager', () => {
 
       expect(MMMChoreManager.loading).toBe(true);
     });
+  });
+
+  test('registers font-awesome and custom css', () => {
+    expect(MMMChoreManager.getStyles()).toMatchObject([
+      'MMM-Chore-Manager.css'
+    ]);
   });
 });

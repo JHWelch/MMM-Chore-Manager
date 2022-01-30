@@ -13,7 +13,7 @@ Module.register('MMM-Chore-Manager', {
     retryDelay: 5000
   },
 
-  requiresVersion: '2.1.0', // Required version of MagicMirror
+  requiresVersion: '2.2.0', // Required version of MagicMirror
 
   loading: true,
 
