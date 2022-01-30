@@ -15,55 +15,27 @@ Module.register('MMM-Chore-Manager', {
 
   requiresVersion: '2.1.0', // Required version of MagicMirror
 
+  loading: true,
+
   start() {
+    Log.info(`Starting module: ${this.name}`);
     const self = this;
-    // const dataRequest = null;
-    // const dataNotification = null;
 
-    // Flag for check if module is loaded
-    this.loaded = false;
-
-    // Schedule update timer.
     this.getData();
+
     setInterval(() => {
-      self.updateDom();
+      self.getData();
     }, this.config.updateInterval);
   },
 
-  /*
-   * getData
-   * function example return data and show it in the module wrapper
-   * get a URL request
-   *
-   */
   getData() {
-    const self = this;
-
-    const urlApi = 'https://jsonplaceholder.typicode.com/posts/1';
-    let retry = true;
-
-    const dataRequest = new XMLHttpRequest();
-    dataRequest.open('GET', urlApi, true);
-    dataRequest.onreadystatechange = function () {
-      console.log(this.readyState);
-      if (this.readyState === 4) {
-        console.log(this.status);
-        if (this.status === 200) {
-          self.processData(JSON.parse(this.response));
-        } else if (this.status === 401) {
-          self.updateDom(self.config.animationSpeed);
-          Log.error(self.name, this.status);
-          retry = false;
-        } else {
-          Log.error(self.name, 'Could not load data.');
-        }
-        if (retry) {
-          self.scheduleUpdate(self.loaded ? -1 : self.config.retryDelay);
-        }
-      }
-    };
-    dataRequest.send();
+    this.sendSocketNotification('CM_GET_DATA', {
+      apiUrl: this.config.apiUrl,
+      apiKey: this.config.apiKey,
+      teamId: this.config.teamId
+    });
   },
+
   /* scheduleUpdate()
    * Schedule next update.
    *
@@ -142,12 +114,11 @@ Module.register('MMM-Chore-Manager', {
     this.sendSocketNotification('MMM-Chore-Manager-NOTIFICATION_TEST', data);
   },
 
-  // socketNotificationReceived from helper
   socketNotificationReceived(notification, payload) {
-    if (notification === 'MMM-Chore-Manager-NOTIFICATION_TEST') {
-      // set dataNotification
-      this.dataNotification = payload;
-      this.updateDom();
+    if (notification === 'CM_DATA') {
+      // Set local variables from payload
+      this.loading = false;
+      this.updateDom(300);
     }
   }
 });

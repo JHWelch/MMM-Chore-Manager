@@ -14,11 +14,11 @@ describe('node_helper', () => {
     });
   });
 
-  describe('api_url and team_id specified', () => {
+  describe('apiUrl and teamId specified', () => {
     test('triggers call to specified endpoint', () => {
       helper.socketNotificationReceived('CM_GET_DATA', {
-        api_url: 'http://example.com/cm/api',
-        team_id: 1
+        apiUrl: 'http://example.com/cm/api',
+        teamId: 1
       });
 
       expect(fetchMock).toHaveBeenNthCalledWith(
@@ -31,8 +31,8 @@ describe('node_helper', () => {
     describe('api_key specified', () => {
       test('call made with auth header', () => {
         helper.socketNotificationReceived('CM_GET_DATA', {
-          api_url: 'http://example.com/cm/api',
-          team_id: 1,
+          apiUrl: 'http://example.com/cm/api',
+          teamId: 1,
           api_key: 'API_KEY'
         });
 
@@ -54,8 +54,8 @@ describe('node_helper', () => {
     });
 
     helper.socketNotificationReceived('CM_GET_DATA', {
-      api_url: 'http://example.com/cm/api',
-      team_id: 1
+      apiUrl: 'http://example.com/cm/api',
+      teamId: 1
     });
 
     await waitForAsync();

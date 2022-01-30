@@ -10,7 +10,7 @@ const NodeHelper = require('node_helper');
 module.exports = NodeHelper.create({
   socketNotificationReceived(notification, payload) {
     if (notification === 'CM_GET_DATA') {
-      const url = `${payload.api_url}/teams/${payload.team_id}/chore_groups`;
+      const url = `${payload.apiUrl}/teams/${payload.teamId}/chore_groups`;
       const options = {};
 
       if (payload.api_key) {
@@ -34,6 +34,6 @@ module.exports = NodeHelper.create({
 
     const parsedResponse = await response.json();
 
-    this.sendSocketNotification('DATA', parsedResponse);
+    this.sendSocketNotification('CM_DATA', parsedResponse);
   }
 });
