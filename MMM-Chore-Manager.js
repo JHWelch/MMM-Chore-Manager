@@ -117,6 +117,7 @@ Module.register('MMM-Chore-Manager', {
   socketNotificationReceived(notification, payload) {
     if (notification === 'CM_DATA') {
       // Set local variables from payload
+      this.chores = payload.data;
       this.loading = false;
       this.updateDom(300);
     }

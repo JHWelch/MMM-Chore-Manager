@@ -116,5 +116,17 @@ describe('MMM-Chore-Manager', () => {
 
       expect(MMMChoreManager.loading).toBe(true);
     });
+
+    test('assigns data correctly', () => {
+      MMMChoreManager.socketNotificationReceived('CM_DATA', payload);
+
+      expect(MMMChoreManager.chores).toMatchObject(payload.data);
+    });
+
+    test('does nothing if notification is different than DATA', () => {
+      MMMChoreManager.socketNotificationReceived('OTHER NOTIFICATION', payload);
+
+      expect(MMMChoreManager.loading).toBe(true);
+    });
   });
 });
