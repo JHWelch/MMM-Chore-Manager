@@ -2,7 +2,19 @@
 
 This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
 
-Todo: Insert description here!
+Integration for [Chore Manager](https://github.com/JHWelch/ChoreManager) web application.
+
+## Installation
+
+In ~/MagicMirror/modules
+```sh
+git clone https://github.com/JHWelch/MMM-Chore-Manager.git
+```
+Install NPM dependencies
+```sh
+cd MMM-Chore-Manager
+npm install
+```
 
 ## Using the module
 
@@ -24,5 +36,13 @@ var config = {
 
 | Option           | Description
 |----------------- |-----------
-| `option1`        | *Required* DESCRIPTION HERE
-| `option2`        | *Optional* DESCRIPTION HERE TOO <br><br>**Type:** `int`(milliseconds) <br>Default 60000 milliseconds (1 minute)
+| `apiUrl` | *Required* URL to api, should end without slash. *http://example.com/api*
+| `apiKey` | *Required* Api Key for Chore Manager instance.
+| `teamId` | *Required* Team for whom to show chores.
+| `updateInterval` | *Optional* Resfresh time in milliseconds <br>Default 60000 milliseconds (1 minute)
+
+## Testing
+There is a test suite using Jest.
+```sh
+npm test
+```

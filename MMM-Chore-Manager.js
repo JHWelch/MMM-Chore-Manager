@@ -9,8 +9,7 @@
 
 Module.register('MMM-Chore-Manager', {
   defaults: {
-    updateInterval: 60000,
-    retryDelay: 5000
+    updateInterval: 60000
   },
 
   requiresVersion: '2.2.0', // Required version of MagicMirror
