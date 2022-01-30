@@ -129,6 +129,7 @@ describe('MMM-Chore-Manager', () => {
 
   test('registers font-awesome and custom css', () => {
     expect(MMMChoreManager.getStyles()).toMatchObject([
+      'font-awesome.css',
       'MMM-Chore-Manager.css'
     ]);
   });

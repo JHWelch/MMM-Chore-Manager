@@ -11,3 +11,14 @@
   text-align: right;
   vertical-align: top;
  }
+
+
+.MMM-Chore-Manager .symbol {
+  padding-left: 0;
+  padding-right: 10px;
+  font-size: var(--font-size-small);
+}
+
+.MMM-Chore-Manager .row {
+  vertical-align: middle;
+}

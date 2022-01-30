@@ -8,7 +8,13 @@
   <table class="small">
     <tbody>
       {% for chore in chores %}
-        <tr class="normal">
+        <tr class="normal row">
+          <td class="symbol">
+            {% if chore.isPastDue %}
+              <i class="fa fa-exclamation-circle"/>
+            {% endif %}
+          </td>
+
           <td class="align-left bright">
             {{ chore.title }}
           </td>

@@ -61,7 +61,7 @@ Module.register('MMM-Chore-Manager', {
   },
 
   getStyles() {
-    return ['MMM-Chore-Manager.css'];
+    return ['font-awesome.css', 'MMM-Chore-Manager.css'];
   },
 
   getTranslations() {
