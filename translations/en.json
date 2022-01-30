@@ -1,4 +1,8 @@
 {
+  "CHORES": "Chores",
+  "LOADING": "loading...",
+  "MATCHDAY": "Matchday {matchDayNumber}",
+  "NO_DATA_AVAILABLE": "No data available!",
   "TITLE": "Title",
   "UPDATE": "Update"
 }

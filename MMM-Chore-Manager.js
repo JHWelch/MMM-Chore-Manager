@@ -54,34 +54,15 @@ Module.register('MMM-Chore-Manager', {
     }, nextLoad);
   },
 
-  getDom() {
-    // create element wrapper for show into the module
-    const wrapper = document.createElement('div');
-    // If this.dataRequest is not empty
-    if (this.dataRequest) {
-      const wrapperDataRequest = document.createElement('div');
-      // check format https://jsonplaceholder.typicode.com/posts/1
-      wrapperDataRequest.innerHTML = this.dataRequest.title;
+  getTemplate() {
+    return 'templates/MMM-Chore-Manager.njk';
+  },
 
-      const labelDataRequest = document.createElement('label');
-      // Use translate function
-      //             this id defined in translations files
-      labelDataRequest.innerHTML = this.translate('TITLE');
-
-      wrapper.appendChild(labelDataRequest);
-      wrapper.appendChild(wrapperDataRequest);
-    }
-
-    // Data from helper
-    if (this.dataNotification) {
-      const wrapperDataNotification = document.createElement('div');
-      // translations  + datanotification
-      wrapperDataNotification.innerHTML =
-        this.translate('UPDATE') + ': ' + this.dataNotification.date;
-
-      wrapper.appendChild(wrapperDataNotification);
-    }
-    return wrapper;
+  getTemplateData() {
+    return {
+      chores: this.chores.past_due.concat(this.chores.today),
+      loading: this.loading
+    };
   },
 
   getScripts() {

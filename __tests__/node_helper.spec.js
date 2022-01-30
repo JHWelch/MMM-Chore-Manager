@@ -24,7 +24,9 @@ describe('node_helper', () => {
       expect(fetchMock).toHaveBeenNthCalledWith(
         1,
         'http://example.com/cm/api/teams/1/chore_groups',
-        {}
+        {
+          headers: { Accept: 'application/json' }
+        }
       );
     });
 
@@ -33,14 +35,17 @@ describe('node_helper', () => {
         helper.socketNotificationReceived('CM_GET_DATA', {
           apiUrl: 'http://example.com/cm/api',
           teamId: 1,
-          api_key: 'API_KEY'
+          apiKey: 'API_KEY'
         });
 
         expect(fetchMock).toHaveBeenNthCalledWith(
           1,
           'http://example.com/cm/api/teams/1/chore_groups',
           {
-            headers: { Authorization: 'Bearer API_KEY' }
+            headers: {
+              Authorization: 'Bearer API_KEY',
+              Accept: 'application/json'
+            }
           }
         );
       });

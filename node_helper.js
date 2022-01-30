@@ -5,6 +5,7 @@
  * MIT Licensed.
  */
 
+const fetch = require('node-fetch');
 const NodeHelper = require('node_helper');
 
 module.exports = NodeHelper.create({
@@ -13,8 +14,15 @@ module.exports = NodeHelper.create({
       const url = `${payload.apiUrl}/teams/${payload.teamId}/chore_groups`;
       const options = {};
 
-      if (payload.api_key) {
-        options.headers = { Authorization: `Bearer ${payload.api_key}` };
+      if (payload.apiKey) {
+        options.headers = {
+          Authorization: `Bearer ${payload.apiKey}`,
+          Accept: 'application/json'
+        };
+      } else {
+        options.headers = {
+          Accept: 'application/json'
+        };
       }
 
       this.getData(url, options);

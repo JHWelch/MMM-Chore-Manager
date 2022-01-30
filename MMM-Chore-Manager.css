@@ -8,3 +8,9 @@
  * Custom here your css module
  *
  */
+
+ .MMM-Chore-Manager .owner {
+  padding-left: 30px;
+  text-align: right;
+  vertical-align: top;
+ }

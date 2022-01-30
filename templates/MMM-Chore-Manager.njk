@@ -1,0 +1,23 @@
+{% if loading %}
+  <div class="dimmed light">{{ "LOADING" | translate | safe }}</div>
+{% else %}
+  <header class="space-between">
+    <span>{{ "CHORES" | translate }}</span>
+  </header>
+
+  <table class="small">
+    <tbody>
+      {% for chore in chores %}
+        <tr class="normal">
+          <td class="align-left bright">
+            {{ chore.title }}
+          </td>
+
+          <td class="owner light">
+            {{ chore.owner }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
