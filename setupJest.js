@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 require('setimmediate');
 require('jest-fetch-mock').enableMocks();
 
