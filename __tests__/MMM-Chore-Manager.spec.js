@@ -134,7 +134,7 @@ describe('MMM-Chore-Manager', () => {
     ]);
   });
 
-  describe('getTemplate', () => {
+  describe('getTemplateData', () => {
     const { generateResponse } = require('../__mocks__/mockResponse');
 
     beforeEach(() => {
@@ -151,6 +151,18 @@ describe('MMM-Chore-Manager', () => {
 
     test('chores do not have past due flag if due today', () => {
       expect(MMMChoreManager.getTemplateData().chores[4].isPastDue).toBeFalsy();
+    });
+
+    test('if no chores in today, can still get proper list', () => {
+      delete MMMChoreManager.chores.today;
+
+      expect(MMMChoreManager.getTemplateData().chores.length).toBe(3);
+    });
+
+    test('if no chores in past due, can still get proper list', () => {
+      delete MMMChoreManager.chores.past_due;
+
+      expect(MMMChoreManager.getTemplateData().chores.length).toBe(2);
     });
   });
 });

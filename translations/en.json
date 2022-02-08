@@ -1,5 +1,6 @@
 {
   "CHORES": "Chores",
+  "EMPTY": "No more chores due today. 😄",
   "LOADING": "loading...",
   "MATCHDAY": "Matchday {matchDayNumber}",
   "NO_DATA_AVAILABLE": "No data available!",

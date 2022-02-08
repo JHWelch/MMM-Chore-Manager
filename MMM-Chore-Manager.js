@@ -41,7 +41,7 @@ Module.register('MMM-Chore-Manager', {
 
   getTemplateData() {
     return {
-      chores: this.getPastDueChores().concat(this.chores.today),
+      chores: this.getPastDueChores().concat(this.chores.today ?? []),
       loading: this.loading
     };
   },
