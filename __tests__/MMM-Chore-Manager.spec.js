@@ -16,7 +16,7 @@ describe('MMM-Chore-Manager', () => {
     MMMChoreManager.setData({ name, identifier: `Module_1_${name}` });
   });
 
-  test('requires version 2.1', () => {
+  test('requires version 2.2.0', () => {
     expect(MMMChoreManager.requiresVersion).toBe('2.2.0');
   });
 
