@@ -4,6 +4,8 @@ This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror
 
 Integration for [Chore Manager](https://github.com/JHWelch/ChoreManager) web application.
 
+![Screenshot of the application in use.](/images/screenshot.png?raw=true "Screenshot")
+
 ## Installation
 
 In ~/MagicMirror/modules
